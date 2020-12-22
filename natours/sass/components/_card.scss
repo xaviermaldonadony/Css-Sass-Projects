@@ -15,6 +15,7 @@
 		left: 0;
 		width: 100%;
 		// hides the back part of an element
+		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 		border-radius: 3px;
 		// image is overflowing

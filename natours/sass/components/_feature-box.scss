@@ -22,6 +22,7 @@
 		);
 		// background gets clipped wherethe text is
 		-webkit-background-clip: text;
+		background-clip: text;
 		color: transparent;
 
 		@include respond(tab-port) {
