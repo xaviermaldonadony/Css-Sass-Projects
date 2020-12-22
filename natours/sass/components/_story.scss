@@ -1,0 +1,87 @@
+.story {
+	width: 75%;
+	// block element inside a block element
+	margin: 0 auto;
+	box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+	background-color: rgba($color-white, 0.6);
+	border-radius: 3px;
+	padding: 6rem;
+	// +3 since we minus it on the &__shape
+	padding-left: 9rem;
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
+
+	@include respond(tab-port) {
+		width: 100%;
+		padding: 4rem;
+		padding-left: 7rem;
+	}
+
+	@include respond(phone) {
+		transform: skewX(0);
+	}
+
+	&__shape {
+		width: 15rem;
+		height: 15rem;
+		float: left;
+		// defines the content around the element
+		// raidus of the circle, half the height of the height and width of the element
+		// at horizontally and vertically
+		// it also has to be floated and has defined dimentions
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+		// it's best to use transform on floated elements rather margins
+		// also strightens the image since the parent skewX -12deg
+		transform: translateX(-3rem) skewX(12deg);
+		position: relative;
+		// image leaks outside of shape
+		overflow: hidden;
+
+		@include respond(phone) {
+			transform: translateX(-3rem) skewX(0);
+		}
+	}
+
+	&__img {
+		height: 100%;
+		// centers the image
+		transform: translateX(-4rem) scale(1.4);
+		// backface-visibility: hidden;
+		transition: all 0.5s;
+	}
+
+	&__text {
+		transform: skewX(12deg);
+
+		@include respond(phone) {
+			transform: skewX(0);
+		}
+	}
+
+	&__caption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 20%);
+		color: $color-white;
+		text-transform: uppercase;
+		text-align: center;
+		opacity: 0;
+		transition: all 0.5s;
+		// eliminates shaking during transition
+		// backface-visibility: hidden;
+	}
+
+	&:hover &__caption {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover &__img {
+		transform: translateX(-4rem) scale(1);
+		filter: blur(3px) brightness(80%);
+	}
+}
