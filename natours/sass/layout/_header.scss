@@ -21,8 +21,8 @@
 	//dpi dots per inch
 	// when ever the resolution is higher than 192dpi
 	// ( And the the width is larger 600px ), or min device pixel ration, for safari 2 for 2x, or min-width is larger than 2000px
-	@media (min-resolution: 192dpi) and (min-width: 37.5em),
-		(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+	@media only screen and(min-resolution: 192dpi) and (min-width: 37.5em),
+		only screen and(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
 		(min-width: 125em) {
 		background-image: linear-gradient(
 				to right bottom,
