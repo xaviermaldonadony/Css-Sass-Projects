@@ -18,9 +18,14 @@ Grey dark 3: #999
 // similar to html selector with a higher specifity
 // css variables, cascade and they are inherited this is the major diff from sass variables
 :root {
-	--color-primary: #eb2f64;
-	--color-primary-light: #ff3366;
-	--color-primary-dark: #ba265d;
+	--color-red: #eb2f64;
+	--color-red-light: #ff3366;
+	--color-red-dark: #ba265d;
+
+	--color-primary: #3feee6;
+	--color-primary-light: #cafafe;
+	--color-primary-dark: #97caef;
+	--color-primary-dark-2: #55bcc9;
 
 	--color-grey-light-1: #faf9f9;
 	--color-grey-light-2: #f4f2f2;
@@ -30,7 +35,19 @@ Grey dark 3: #999
 	--color-grey-dark-1: #333;
 	--color-grey-dark-2: #777;
 	--color-grey-dark-3: #999;
+
+	--shadow-dark: 0 0.8rem 5rem rgba(0, 0, 0, 0.12);
+	--shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+	--shadow-dark-large: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+
+	--line: 1px solid var(--color-grey-light-2);
 }
+
+$bp-largest: 75em; // 1200/16 = 75, 1200px
+$bp-large: 68.75em; // 1100/16 = 75, 1100px
+$bp-medium: 56.25em; // 900/16 = 56.25, 900px
+$bp-small: 37.5em; // 600/16 = 37.5, 600px
+$bp-smallest: 31.25em; // 500/16 = 37.5, 500px
 
 * {
 	margin: 0;
@@ -46,6 +63,10 @@ Grey dark 3: #999
 html {
 	box-sizing: border-box;
 	font-size: 62.5%; // 1 rem = 10px; 10/16 = 62.5
+
+	@media only screen and (max-width: $bp-large) {
+		font-size: 50%; //8px
+	}
 }
 
 body {
@@ -54,11 +75,18 @@ body {
 	line-height: 1.6;
 	color: var(--color-grey-dark-2);
 
+	// background-image: linear-gradient(
+	// 	to right bottom,
+	// 	rgba(var(--color-primary-light), 1),
+	// 	rgba(var(--color-primary-dark), 1)
+	// );
+
 	background-image: linear-gradient(
 		to right bottom,
 		var(--color-primary-light),
 		var(--color-primary-dark)
 	);
+
 	background-size: cover;
 	background-repeat: no-repeat;
 	// temp
