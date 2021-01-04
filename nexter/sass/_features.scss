@@ -24,7 +24,9 @@
 	grid-column: center-start / center-end;
 
 	grid-template-columns: subgrid;
-	// grid-template-columns: repeat(3, 1fr);
+	// 	// grid-template-columns: repeat(3, 1fr);
+	// 	// the width of the tranck should ne between 25rem and 1fr
+	// 	// auto fit will add as many tracks in the container
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 	grid-gap: 6rem;
 	align-items: start;
