@@ -14,7 +14,7 @@
 
 ## Tour website
 
-- Custom grids with floats
+- Implemented with custom grids with floats
 
 ## Video Walkthrough
 
